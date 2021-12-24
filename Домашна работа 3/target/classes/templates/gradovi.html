@@ -1,0 +1,68 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            Временска прогноза
+            <br />
+            <div class="circle">
+                <h6 style="padding-top: 20px" th:text="${items.getLocation().getName()}"></h6>
+                <h3 style="padding-top: 5px" th:text="${items.getCurrent().getTemp_c()}"></h3>
+                <h6 th:text="${items.getLocation().getCountry()}"></h6>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="square">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Feels like</h6>
+                        <h4 th:text="${items.getCurrent().getFeelslike_c()}"></h4>
+                        <br/>
+                        <h6>UV index</h6>
+                        <h4 th:text="${items.getCurrent().getUv()}"></h4>
+                        <br/>
+                        <h6>Квалитет на воздух</h6>
+                        <h4 th:text="${items.getCurrent().getAir_quality().getAirQuality()}"></h4>
+                        <br/>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Влажност</h6>
+                        <h4 th:text="${items.getCurrent().getHumidity()}"></h4>
+                        <br/>
+                        <h6>Притисок</h6>
+                        <h4 th:text="${items.getCurrent().getPressure_mb()}"></h4>
+                        <br/>
+                        <h6>Облачност</h6>
+                        <h4 th:text="${items.getCurrent().getCloud()}"></h4>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <button type="button" class="btn btn-primary">Повеќе информации за квалитетот на воздухот</button>
+        </div>
+        <div class="col-md-4">
+            <div style="padding-top: 15px">
+                <div class="input-group">
+                    <form class="form-signin mt-xl-5" method="post" action="/gradovi">
+                            <label for="city" class="sr-only">City</label>
+                            <input type="text" id="city" name="city" class="form-control rounded" placeholder="Search city" required>
+                        <button type="submit" class="btn btn-outline-primary">Search</button>
+                        <div th:if="${hasError}">
+                            <div th:text="${error}" class="text-danger"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <br>
+            <select class="browser-default custom-select">
+                <option selected="0">Скопје</option>
+                <option value="1">Куманово</option>
+                <option value="2">Кавадарци</option>
+                <option value="3">Тетово</option>
+            </select>
+
+        </div>
+    </div>
+</div>
+
