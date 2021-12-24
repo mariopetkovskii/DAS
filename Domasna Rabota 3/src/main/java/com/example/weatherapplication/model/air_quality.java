@@ -10,6 +10,7 @@ public class air_quality {
     //      "so2": 1,
     //      "pm2_5": 6.699999809265137,
     //      "pm10": 7.400000095367432,
+    // test
     private Double co;
     private Double no2;
     private Double o3;
