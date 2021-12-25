@@ -26,17 +26,17 @@ public class AuthServiceImpl implements AuthService {
                 .orElseThrow(InvalidUserCredentialException::new);
     }
 
-    @Override
-    public User register(String username, String password, String repeatPassword, String name, String surname) {
-        if(username == null || username.isEmpty() || password == null || password.isEmpty())
-            throw new InvalidArgumentException("Invalid arguments!");
-        if(!password.equals(repeatPassword)) {
-            throw new PasswordDoNotMatchException("Password do not match.");
-        }
-        if(this.userRepository.findByUsername(username).isPresent()
-                || !this.userRepository.findByUsername(username).isEmpty())
-            throw new UsernameAlreadyExistsException(username);
-        User user = new User(username, password, name, surname);
-        return userRepository.save(user);
-    }
+//    @Override
+//    public User register(String username, String password, String repeatPassword, String name, String surname) {
+//        if(username == null || username.isEmpty() || password == null || password.isEmpty())
+//            throw new InvalidArgumentException("Invalid arguments!");
+//        if(!password.equals(repeatPassword)) {
+//            throw new PasswordDoNotMatchException("Password do not match.");
+//        }
+//        if(this.userRepository.findByUsername(username).isPresent()
+//                || !this.userRepository.findByUsername(username).isEmpty())
+//            throw new UsernameAlreadyExistsException(username);
+//        User user = new User(username, password, name, surname);
+//        return userRepository.save(user);
+//    }
 }

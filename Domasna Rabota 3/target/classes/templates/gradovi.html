@@ -64,5 +64,10 @@
 
         </div>
     </div>
+    <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+    <div class="col-sm-12 col-md-12">
+        <a href="/gradovi/add-form" class="btn btn-block btn-dark add-product-btn">Add new city</a>
+    </div>
+    </th:block>
 </div>
 

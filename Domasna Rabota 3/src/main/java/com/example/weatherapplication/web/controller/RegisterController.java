@@ -4,6 +4,7 @@ package com.example.weatherapplication.web.controller;
 import com.example.weatherapplication.model.exceptions.InvalidArgumentException;
 import com.example.weatherapplication.model.exceptions.PasswordDoNotMatchException;
 import com.example.weatherapplication.service.AuthService;
+import com.example.weatherapplication.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/register")
 public class RegisterController {
     private final AuthService authService;
+    private final UserService userService;
 
-    public RegisterController(AuthService authService) {
+    public RegisterController(AuthService authService, UserService userService) {
         this.authService = authService;
+        this.userService = userService;
     }
 
     @GetMapping
@@ -37,7 +40,7 @@ public class RegisterController {
                            @RequestParam String name,
                            @RequestParam String surname){
         try{
-            this.authService.register(username, password, repeatPassword, name, surname);
+            this.userService.register(username, password, repeatPassword, name, surname);
             return "redirect:/login";
         }
         catch(PasswordDoNotMatchException | InvalidArgumentException exception){
