@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <form action="/user/change" method="post">
+                <div class="form-group">
+                    <label for="user">Username</label>
+                    <input type="text" class="form-control" id="user" name="user" required placeholder="Enter username">
+                </div>
+                <div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="role" type="radio" id="ROLE_ADMIN" value="ROLE_ADMIN" checked>
+                    <label class="form-check-label" for="ROLE_ADMIN">ROLE_ADMIN</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="role" type="radio" id="ROLE_USER" value="ROLE_USER">
+                    <label class="form-check-label" for="ROLE_USER">ROLE_USER</label>
+                </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a type="button" class="btn btn-primary" href="/gradovi">Back</a>
+                <div th:if="${hasError}">
+                    <div th:text="${error}" class="text-danger"></div>
+                </div>
+                <div th:if="${isChanged}">
+                    <div th:text="${successChanged}" class="text-danger"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
