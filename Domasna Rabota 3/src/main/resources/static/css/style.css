@@ -21,7 +21,7 @@ head, body{
 
 .square{
     width: 377px;
-    height: 250px;
+    height: 350px;
     color: black;
     position: relative;
     text-align: center;
@@ -106,6 +106,7 @@ a {
     width: 100%;
     position: absolute;
     bottom: 0;
+    height: 5.5rem;
 }
 footer .main-footer{  padding: 20px 0;  background: #252525;}
 footer ul{  padding-left: 0;  list-style: none;}

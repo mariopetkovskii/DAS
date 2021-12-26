@@ -17,6 +17,7 @@ public class Current {
     private String uv;
     private String pressure_mb;
     private air_quality air_quality;
+    private String precip_mm;
 
     public String getTemp_c() {
         return String.format("%sºC", temp_c);

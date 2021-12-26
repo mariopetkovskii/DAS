@@ -1,6 +1,5 @@
 package com.example.weatherapplication.web.controller;
 
-
 import com.example.weatherapplication.model.City;
 import com.example.weatherapplication.model.Foo;
 import com.example.weatherapplication.model.exceptions.CityNotFoundException;
@@ -28,7 +27,7 @@ import static org.springframework.test.web.client.response.MockRestResponseCreat
 import static org.springframework.web.servlet.function.RequestPredicates.method;
 
 @Controller
-@RequestMapping("/gradovi")
+@RequestMapping(value = {"/", "/home", "/gradovi"})
 public class CityController {
     private final CityService cityService;
     private final WeatherService weatherService;
@@ -61,9 +60,11 @@ public class CityController {
     }
 
     @PostMapping("/search")
-    public String searchFilter(HttpServletRequest req){
+    public String searchFilter(HttpServletRequest req, Model model){
         String search = req.getParameter("search");
         req.getSession().setAttribute("search", search);
+        List<City> cities = cityService.findAll();
+        model.addAttribute("cities", cities);
         return "redirect:/gradovi";
     }
 
@@ -88,6 +89,8 @@ public class CityController {
                                  @RequestParam String city) {
         try {
             weatherService.getInfo(city, restTemplate, model);
+            List<City> cities = cityService.findAll();
+            model.addAttribute("cities", cities);
             model.addAttribute("bodyContent", "gradovi");
             return "master-template";
         } catch (CityNotFoundException cityNotFoundException) {

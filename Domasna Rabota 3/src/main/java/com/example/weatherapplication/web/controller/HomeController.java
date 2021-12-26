@@ -9,18 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 
 @Controller
-@RequestMapping(value = {"/", "/home"})
+@RequestMapping()
 public class HomeController {
 
-    @GetMapping
-    String getHomePage(HttpServletRequest request){
-        int year = LocalDateTime.now().getYear();
-        request.setAttribute("vreme", year);
-        return "home";
-    }
     @GetMapping("denied_access")
     public String accessDeniedPage(Model model){
         model.addAttribute("bodyContent", "denied_access");
         return "master-template";
     }
+
 }

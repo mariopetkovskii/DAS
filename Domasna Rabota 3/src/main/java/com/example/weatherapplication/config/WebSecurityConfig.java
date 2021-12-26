@@ -1,6 +1,7 @@
 package com.example.weatherapplication.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -30,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/home", "/assets/**", "/register", "/css/style.css", "style.css", "/style.css").permitAll()
+                .antMatchers("/", "/home", "/assets/**", "/register", "/css/style.css", "style.css", "/style.css", "/gradovi").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
@@ -61,4 +62,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .authorities("ROLE_ADMIN");
         auth.authenticationProvider(customUsernamePasswordAuthenticationProvider);
     }
+
 }
