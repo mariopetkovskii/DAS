@@ -39,19 +39,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
-    public void changeRole(String username, Role role) throws UsernameNotFoundException{
-        if(username == null || username.isEmpty())
-            throw new InvalidArgumentException("Username cannot be empty!");
-        else{
-            User user = userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username));
-            user.setRole(role);
-            userRepository.save(user);
-        }
-
-    }
-
-    @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         return userRepository.findByUsername(s).orElseThrow(() -> new UsernameNotFoundException(s));
     }

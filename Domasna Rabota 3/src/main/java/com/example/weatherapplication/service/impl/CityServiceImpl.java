@@ -18,11 +18,6 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public Optional<City> findByName(String city) {
-        return cityRepository.findByCity(city);
-    }
-
-    @Override
     public List<City> findAll() {
         return cityRepository.findAll();
     }
@@ -32,6 +27,11 @@ public class CityServiceImpl implements CityService {
         City cityy = new City(city);
         this.cityRepository.delete(cityy);
         return Optional.of(this.cityRepository.save(new City(city)));
+    }
+
+    @Override
+    public City findCityBySelectedOption(String city) {
+        return cityRepository.findByCity(city);
     }
 
 

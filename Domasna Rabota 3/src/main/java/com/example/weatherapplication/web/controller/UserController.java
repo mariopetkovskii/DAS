@@ -31,12 +31,4 @@ public class UserController {
         return "master-template";
     }
 
-    @PutMapping("/change")
-    private String setRole(@RequestParam String user,
-                           @RequestParam Role role){
-        userService.changeRole(user, role);
-        model.addAttribute("bodyContent", "changeRole");
-        System.out.println("test");
-        return "master-template";
-    }
 }

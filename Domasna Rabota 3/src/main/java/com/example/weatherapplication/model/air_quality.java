@@ -22,7 +22,40 @@ public class air_quality {
         return String.format("%.0f", (co + no2 + o3 + so2 + pm2_5 + pm10) / 8);
     }
 
-    public Double getNo2() {
-        return no2;
+    public String getNo2() {
+        return String.format("%.0f", no2);
+    }
+
+    public String getCo() {
+        return String.format("%.0f", co);
+    }
+
+    public String getO3() {
+        return String.format("%.0f", o3);
+    }
+
+    public String getSo2() {
+        return String.format("%.0f", so2);
+    }
+
+    public String  getPm2_5() {
+        return String.format("%.0f", pm2_5);
+    }
+
+    public String  getPm10() {
+        return String.format("%.0f", pm10);
+    }
+
+    public Double airQuality(){
+        return (co + no2 + o3 + so2 + pm2_5 + pm10) / 8;
+    }
+
+    public String AirQualityInfo(){
+        if(airQuality() < 40)
+            return "Air is not polluted";
+        else if(airQuality() < 100)
+            return "Air is polluted";
+        else
+            return "Air is too hazardous";
     }
 }

@@ -45,16 +45,26 @@ public class CityController {
             model.addAttribute("error", error);
         }
         List<City> cities = cityService.findAll();
-        String header = req.getHeader("User-Agent");
-        model.addAttribute("agent", header);
         model.addAttribute("cities", cities);
-        String resourceUrl = "http://api.weatherapi.com/v1/current.json?key=49c446e04a81488591322208212209&q=Skopje&aqi=yes";
+        String search = (String) req.getSession().getAttribute("search");
+        String resourceUrl;
+        if(search != null){
+            resourceUrl = "http://api.weatherapi.com/v1/current.json?key=49c446e04a81488591322208212209&q=" + search + "&aqi=yes";
+        }else {
+            resourceUrl = "http://api.weatherapi.com/v1/current.json?key=49c446e04a81488591322208212209&q=Skopje&aqi=yes";
+        }
         Foo foo = restTemplate
                 .getForObject(resourceUrl, Foo.class);
         model.addAttribute("items", foo);
         model.addAttribute("bodyContent", "gradovi");
-
         return "master-template";
+    }
+
+    @PostMapping("/search")
+    public String searchFilter(HttpServletRequest req){
+        String search = req.getParameter("search");
+        req.getSession().setAttribute("search", search);
+        return "redirect:/gradovi";
     }
 
     @GetMapping("/add-form")
