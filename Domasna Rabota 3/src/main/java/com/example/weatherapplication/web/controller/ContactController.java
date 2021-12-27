@@ -20,7 +20,11 @@ public class ContactController {
 
 
     @GetMapping
-    private String getPage(Model model){
+    private String getPage(@RequestParam(required = false) String success, Model model){
+        if (success != null && !success.isEmpty()) {
+            model.addAttribute("isSuccess", true);
+            model.addAttribute("success", success);
+        }
         model.addAttribute("bodyContent", "contact");
         return "master-template";
     }
@@ -28,7 +32,7 @@ public class ContactController {
 
     @PostMapping("/send")
     public String sendEmail(@RequestParam String email,
-                          @RequestParam String message){
+                            @RequestParam String message){
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setTo("dasproekt7@gmail.com");
 
@@ -36,6 +40,6 @@ public class ContactController {
         msg.setText(message);
 
         javaMailSender.send(msg);
-        return "home";
+        return "redirect:/contact?success=" + "Thanks for filling out our form!";
     }
 }

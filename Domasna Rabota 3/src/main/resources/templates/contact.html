@@ -10,6 +10,9 @@
             <input type="text" class="form-control" id="message" name="message" required
                    placeholder="Enter message">
         </div>
+        <div th:if="${isSuccess}">
+            <div th:text="${success}" class="text-danger"></div>
+        </div>
 
         <button type="submit" class="btn btn-sm btn-primary">
             Submit
