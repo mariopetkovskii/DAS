@@ -35,7 +35,7 @@ public class CityController {
     public CityController(CityService cityService, WeatherService weatherService) {
         this.cityService = cityService;
         this.weatherService = weatherService;
-    }//tes
+    }
 
     @GetMapping
     String getHomePage(@RequestParam(required = false) String error, Model model, HttpServletRequest req, RestTemplate restTemplate) {
@@ -83,7 +83,6 @@ public class CityController {
     }
 
     @PostMapping
-//    @ResponseStatus()
     public String searchCityPage(Model model,
                                  RestTemplate restTemplate,
                                  @RequestParam String city) {
