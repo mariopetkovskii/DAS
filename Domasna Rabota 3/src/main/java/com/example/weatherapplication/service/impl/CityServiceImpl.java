@@ -29,10 +29,6 @@ public class CityServiceImpl implements CityService {
         return Optional.of(this.cityRepository.save(new City(city)));
     }
 
-    @Override
-    public City findCityBySelectedOption(String city) {
-        return cityRepository.findByCity(city);
-    }
 
 
 }
