@@ -4,13 +4,7 @@ import lombok.Data;
 
 @Data
 public class air_quality {
-    //"co": 300.3999938964844,
-    //      "no2": 6,
-    //      "o3": 43.29999923706055,
-    //      "so2": 1,
-    //      "pm2_5": 6.699999809265137,
-    //      "pm10": 7.400000095367432,
-    // test
+
     private Double co;
     private Double no2;
     private Double o3;

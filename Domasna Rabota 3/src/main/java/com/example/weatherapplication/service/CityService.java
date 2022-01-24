@@ -8,5 +8,4 @@ import java.util.Optional;
 public interface CityService {
     List<City> findAll();
     Optional<City> Save(String city);
-    City findCityBySelectedOption(String city);
 }

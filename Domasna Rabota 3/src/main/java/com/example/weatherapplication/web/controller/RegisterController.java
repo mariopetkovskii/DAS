@@ -3,6 +3,7 @@ package com.example.weatherapplication.web.controller;
 
 import com.example.weatherapplication.model.exceptions.InvalidArgumentException;
 import com.example.weatherapplication.model.exceptions.PasswordDoNotMatchException;
+import com.example.weatherapplication.model.exceptions.UsernameAlreadyExistsException;
 import com.example.weatherapplication.service.AuthService;
 import com.example.weatherapplication.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -43,10 +44,8 @@ public class RegisterController {
             this.userService.register(username, password, repeatPassword, name, surname);
             return "redirect:/login";
         }
-        catch(PasswordDoNotMatchException | InvalidArgumentException exception){
+        catch(PasswordDoNotMatchException | UsernameAlreadyExistsException | InvalidArgumentException exception){
             return "redirect:/register?error=" + exception.getMessage();
         }
     }
-
-    //test
 }

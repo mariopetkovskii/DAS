@@ -29,16 +29,5 @@ public class RestTemplateResponseErrorHandler
             throws IOException {
 
         throw new CityNotFoundException();
-//        if (httpResponse.getStatusCode()
-//                .series() == HttpStatus.Series.SERVER_ERROR) {
-//        } else if (httpResponse.getStatusCode()
-//                .series() == HttpStatus.Series.CLIENT_ERROR) {
-//            if (httpResponse.getStatusCode() == HttpStatus.NOT_FOUND) {
-//
-//            }
-//            throw new CityNotFoundException();
-//        }
-        // test commit
-        //test 2
     }
 }
