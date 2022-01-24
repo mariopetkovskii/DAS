@@ -38,5 +38,7 @@ public class RestTemplateResponseErrorHandler
 //            }
 //            throw new CityNotFoundException();
 //        }
+        // test commit
+        //test 2
     }
 }

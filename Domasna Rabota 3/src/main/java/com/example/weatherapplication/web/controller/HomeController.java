@@ -16,6 +16,6 @@ public class HomeController {
     public String accessDeniedPage(Model model){
         model.addAttribute("bodyContent", "denied_access");
         return "master-template";
-    }
+    }//
 
 }
