@@ -1,7 +1,6 @@
 package com.example.weatherapplication.service.ErrorHandler;
 
 import com.example.weatherapplication.model.exceptions.CityNotFoundException;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.ResponseErrorHandler;

@@ -1,11 +1,8 @@
 package com.example.weatherapplication.web.controller;
 
 
-import com.example.weatherapplication.model.Role;
-import com.example.weatherapplication.model.User;
 import com.example.weatherapplication.service.UserService;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 public class UserController {
     private final UserService userService;
-    Model model;
 
     public UserController(UserService userService) {
         this.userService = userService;
@@ -22,7 +18,7 @@ public class UserController {
 
     @GetMapping("/changeRole")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    private String getChangeRolePage(@RequestParam(required = false) String error,Model model){
+    private String getChangeRolePage(@RequestParam(required = false) String error, Model model) {
         if (error != null && !error.isEmpty()) {
             model.addAttribute("hasError", true);
             model.addAttribute("error", error);

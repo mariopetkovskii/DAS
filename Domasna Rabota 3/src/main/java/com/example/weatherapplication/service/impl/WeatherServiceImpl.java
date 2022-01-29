@@ -1,29 +1,16 @@
 package com.example.weatherapplication.service.impl;
 
-import com.example.weatherapplication.model.City;
 import com.example.weatherapplication.model.Foo;
-import com.example.weatherapplication.model.FooError;
 import com.example.weatherapplication.model.exceptions.CityNotFoundException;
 import com.example.weatherapplication.service.ErrorHandler.RestTemplateResponseErrorHandler;
 import com.example.weatherapplication.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.client.ExpectedCount;
-import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.ui.Model;
-import org.springframework.util.Assert;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Collections;
-import java.util.Optional;
-
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
-import static org.springframework.test.web.client.response.MockRestResponseCreators.withStatus;
-import static org.springframework.web.servlet.function.RequestPredicates.method;
 
 @ContextConfiguration(classes = { CityNotFoundException.class, Foo.class })
 @Service

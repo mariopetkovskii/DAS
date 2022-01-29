@@ -1,6 +1,5 @@
 package com.example.weatherapplication.service.impl;
 
-import com.example.weatherapplication.model.Role;
 import com.example.weatherapplication.model.User;
 import com.example.weatherapplication.model.exceptions.InvalidArgumentException;
 import com.example.weatherapplication.model.exceptions.PasswordDoNotMatchException;

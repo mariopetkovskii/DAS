@@ -97,9 +97,5 @@ public class CityController {
         }
     }
 
-    @ExceptionHandler({CityNotFoundException.class})
-    public void handle() {
-        System.out.println("Test");
-    }
 
 }

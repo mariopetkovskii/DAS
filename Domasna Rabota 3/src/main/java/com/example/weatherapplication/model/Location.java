@@ -12,8 +12,4 @@ public class Location {
     private String message;
     private Error error;
 
-    public String getLast_updated() {
-        return String.format("Last time updated: %s", last_updated);
-    }
-
 }

@@ -29,10 +29,4 @@ public class CityServiceImpl implements CityService {
         return Optional.of(this.cityRepository.save(new City(city)));
     }
 
-    @Override
-    public Optional<City> findById(Long id) {
-        return this.cityRepository.findById(id);
-    }
-
-
 }
