@@ -1,6 +1,6 @@
-package com.example.weatherapplication.config;
+package com.example.userservice.config;
 
-import com.example.weatherapplication.service.UserService;
+import com.example.userservice.service.UserService;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -9,6 +9,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+
 
 @Component
 public class CustomUsernamePasswordAuthenticationProvider implements AuthenticationProvider {

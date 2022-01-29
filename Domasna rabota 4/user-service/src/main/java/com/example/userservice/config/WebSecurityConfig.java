@@ -1,7 +1,6 @@
-package com.example.weatherapplication.config;
+package com.example.userservice.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -28,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/home", "/assets/**", "/register", "/css/style.css", "style.css", "/style.css", "/gradovi").permitAll()
+                .antMatchers("/", "/home", "/assets/**", "/register", "/static/css/style.css", "style.css", "/style.css", "/gradovi").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
@@ -48,7 +47,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(customUsernamePasswordAuthenticationProvider);
+        auth.inMemoryAuthentication()
+                .withUser("test")
+                .password(passwordEncoder.encode("test"))
+                .authorities("ROLE_USER")
+                .and()
+                .withUser("admin")
+                .password(passwordEncoder.encode("admin"))
+                .authorities("ROLE_ADMIN");
+        //auth.authenticationProvider(customUsernamePasswordAuthenticationProvider);
     }
 
 }
