@@ -13,4 +13,9 @@
         <maven.compiler.target>16</maven.compiler.target>
     </properties>
 
+    <modules>
+        <module>user-service</module>
+        <module>weather-service</module>
+    </modules>
+
 </project>
