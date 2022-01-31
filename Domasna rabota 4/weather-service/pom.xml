@@ -59,6 +59,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>weather-service.jar</finalName>
     </build>
 
 </project>
